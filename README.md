@@ -1,5 +1,7 @@
 # Fahrzeugflotte am Kai: Wie viele Fahrzeuge braucht eine Containerbrücke? – Streamlit-Demo
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-fahrzeugflotte-demo.streamlit.app/)**
+
 Interaktive Fall-Demo zur **Fahrzeug-Disposition zwischen Containerbrücke und Stapelblock**: Jede Brücke braucht für jeden Container ein Fahrzeug zur richtigen Zeit. Zu wenige
 Fahrzeuge lassen die **Brücke warten** (Kranwartezeit), zu viele kosten Geld. Die **Mindestflotte** ist exakt und in Millisekunden berechenbar. Die Demo beantwortet zwei
 Fragen: **Wie knapp ist diese Antwort?** (ein Fahrzeug weniger kostet kaum etwas, zwei weniger schon viel) und **hält sie, wenn die Fahrzeiten schwanken?**
