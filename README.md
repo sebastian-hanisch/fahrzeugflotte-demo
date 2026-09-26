@@ -19,7 +19,8 @@ nicht robust** – die schlichte Regel „Nächstes freies" schlägt ihn bei Str
 ## Modell
 
 Ein Kai mit Q Containerbrücken (40 m Abstand), B Stapelblöcken, feste Fahrgeschwindigkeit 6 m/s, Absetzzeit 15 s. Jede Brücke ruft in ihrem Takt (mit Streuung) Container ab; eine
-Brücke nimmt höchstens **alle 40 s** einen Container auf. Fahrzeiten werden auf ganze Sekunden **aufgerundet**, nie gerundet. Fahrzeuge starten „irgendwo" und sind ab
+Brücke nimmt höchstens **alle 40 s** einen Container auf. Fahrzeiten werden immer auf die nächste ganze Sekunde **aufgerundet**, nie kaufmännisch gerundet – ein Fahrzeug kommt also nie
+früher an, als die exakte Fahrzeit erlauben würde. Fahrzeuge starten „irgendwo" und sind ab
 Beginn bereit.
 
 **Kran-Kopplung:** Aufnahme p_j = max(Basis_j, Ankunft des Fahrzeugs), Basis_j = max(Fahrplan-Zeit r_j, p_Vorgänger derselben Brücke + 40 s), **Kranwartezeit** w_j = p_j − Basis_j.
