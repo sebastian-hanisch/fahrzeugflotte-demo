@@ -361,7 +361,7 @@ with st.expander("Wie funktioniert diese Demo?"):
 **Aufträge, Fahrzeuge, Kran-Kopplung.** Jede Containerbrücke ruft in ihrem Takt Container ab; ein Auftrag heißt: Zu einer Fahrplan-Zeit muss ein Fahrzeug unter der Brücke stehen,
 den Container aufnehmen und zu einem Block fahren. Danach ist das Fahrzeug wieder frei und fährt leer zur nächsten Brücke. Eine Brücke nimmt höchstens alle 40 s einen Container auf.
 Kommt ein Fahrzeug zu spät, **wartet die Brücke** (das ist die Kranwartezeit, die Zielgröße), und weil sie danach nicht schneller arbeiten kann, **verschiebt sich ihre ganze
-Restfolge**: ein Fehler pflanzt sich fort. Die Fahrzeiten sind ganze Sekunden und werden aufgerundet, nie gerundet.
+Restfolge**: ein Fehler pflanzt sich fort. Die Fahrzeiten werden immer auf die nächste ganze Sekunde aufgerundet, nie kaufmännisch gerundet – ein Fahrzeug kommt also nie früher an, als die exakte Fahrzeit erlauben würde.
 
 **Die Mindestflotte** ist die kleinste Zahl von Fahrzeugen, mit der ohne Störung jeder Auftrag rechtzeitig bedient wird. Sie folgt aus einem Matching (siehe Formulierung), ist
 also exakt und in Millisekunden berechnet, auch für 240 Aufträge; ein Beweis mit Knotenüberdeckung liegt dabei (Tab "Exakt"). Die Regler stellen die Flotte als **Abstand zum Minimum**

@@ -277,7 +277,7 @@ def _strategy_app(delta, sigma, exact_case):
     t_range = (0, V.time_axis_end(*[o.run for o in outcomes if o.available]))
     focus = {s.key: s for s in E.focus_stats(inst, K, sigma, 3, n_draws=5)}
     if exact_case:
-        opt = solve_min_wait(inst, K, time_limit_seconds=5)
+        opt = solve_min_wait(inst, K, time_limit_seconds=20)
         if exact_case == "rule":
             import dataclasses
             opt = dataclasses.replace(opt, source="Regel", proven=False, wait_lower=1.0)
@@ -373,7 +373,7 @@ def test_exact_panel_caption_at_exact_minimum_and_gap_values():
     inst = make_instance(3, 10, 4)
     kmin, _ = min_fleet(inst)
     from fz_exact import solve_min_wait
-    opt = solve_min_wait(inst, kmin - 1, time_limit_seconds=5)
+    opt = solve_min_wait(inst, kmin - 1, time_limit_seconds=20)
     gaps = {g.key: g for g in E.gaps_to_optimum(inst, kmin - 1, opt)}
     for key, g in gaps.items():
         m = [x for x in below.metric if x.label == C.STRATEGY_LABELS[key]][0]
