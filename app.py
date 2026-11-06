@@ -74,6 +74,17 @@ schon ein Vielfaches) und ob sie hält, wenn die Fahrzeiten schwanken: Dann hilf
 """
 )
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/fahrzeug-disposition-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Containerbrücken laden Container aus einem Schiff. Jeder Container braucht zu einer festen Zeit ein Fahrzeug unter der Brücke, das ihn zu einem Lagerblock bringt und danach leer zurückfährt. Fehlt ein Fahrzeug, wartet die Brücke. Die kleinste Flotte, bei der keine Brücke wartet, lässt sich exakt und sofort berechnen. Die Demo zeigt, wie knapp diese Antwort ist: Ein Fahrzeug weniger kostet kaum etwas, zwei weniger schon viel. Danach schwanken die Fahrzeiten. Vier Verfahren treten an: ein starrer Plan, ein Plan mit Umplanung, die einfache Regel „nächstes freies Fahrzeug“ und Bestfit. Zu sehen ist, wer die Schwankung verträgt und was Reservefahrzeuge bringen.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/fahrzeug-disposition-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 st.caption("🎯 Schnellstart – ein Beispielszenario laden:")
 PRESET_HELP = {
     "Knapp geplant": "Das exakte Minimum reicht: ohne Störung laufen alle Brücken ohne Wartezeit.",
@@ -407,6 +418,27 @@ Verteilung (besser, gleich, schlechter) und den Median, und nennt einen Untersch
     )
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/fahrzeug-disposition-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind Aufträge $j$ mit Fahrplanzeit $r_j$, Brücke $q_j$ und Block $b_j$, Fahrzeiten $t(q, b)$, eine Absetzzeit $s$ und ein Mindestabstand $\tau$ zwischen zwei Aufnahmen derselben Brücke. Gesucht sind die kleinste Flotte $K_{\min}$, bei der keine Brücke wartet, und für jede Flottengröße eine Zuordnung von Fahrzeugen zu Aufträgen, die die Kranwartezeit $\sum_j w_j$ klein hält, auch wenn die Fahrzeiten schwanken.
+
+| Symbol | Bedeutung |
+|---|---|
+| $j$, $n$ | Index eines Auftrags (ein Container) bzw. Zahl der Aufträge |
+| $r_j$ | Fahrplan-Aufnahmezeit von Auftrag $j$ (nominal) |
+| $q_j$, $b_j$ | Brücke bzw. Stapelblock von Auftrag $j$ |
+| $t(q, b)$, $s$ | aufgerundete Fahrzeit zwischen Brücke $q$ und Block $b$ bzw. Absetzzeit |
+| $\tau$ | Mindestabstand zwischen zwei Aufnahmen derselben Brücke |
+| $K_{\min}$, $\nu$ | Mindestflotte bzw. Größe eines maximalen Matchings |
+| $p_j$, $\beta_j$, $w_j$ | tatsächliche Aufnahmezeit, frühestmögliche Aufnahmezeit bzw. Kranwartezeit von Auftrag $j$ |
+| $\alpha_j$ | Ankunft des gewählten Fahrzeugs unter der Brücke von Auftrag $j$ |
+| $\sigma$ | Stärke des Fahrzeit-Rauschens (Fahrten bis zum $(1 + \sigma)$-Fachen) |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/fahrzeug-disposition-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Mindestflotte für einen Auftragsstrom** (minimale Wegeüberdeckung, polynomiell lösbar).

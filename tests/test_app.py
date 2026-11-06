@@ -2,6 +2,7 @@
 Exakt-Tab (Beweis, Optimum, veraltete Berechnung), eindeutige Diagramm-Schlüssel."""
 
 import pathlib
+import re
 
 import pytest
 from streamlit.testing.v1 import AppTest
@@ -51,7 +52,7 @@ def test_skeleton_and_footer():
     assert len(at.title) == 1 and "Containerbrücke" in at.title[0].value
     assert any(v.value.startswith("## 🎯") for v in at.markdown)
     assert [s.value for s in at.subheader] == ["📐 Wie viele Fahrzeuge braucht eine Brücke?"]
-    assert [e.label for e in at.expander] == ["🔧 Wie wir das erreichen – vollständiger Methodenvergleich", "Wie funktioniert diese Demo?", "📐 Mathematische Formulierung"]
+    assert [e.label for e in at.expander] == ["💬 In einfachen Worten", "🔧 Wie wir das erreichen – vollständiger Methodenvergleich", "Wie funktioniert diese Demo?", "📐 Mathematische Formulierung"]
     assert at.caption[-1].value == FOOTER or any(c.value == FOOTER for c in at.caption)
     presets = [b.label for b in at.button if b.label in C.PRESETS]
     assert presets == list(C.PRESETS) and len(presets) == 5
@@ -279,7 +280,7 @@ def test_texts_mention_limits_and_no_dead_file_links():
     md = "\n".join(m.value for m in at.markdown)
     assert "Grenzen dieses Modells" in md and "Größenordnungen aus einer Simulation" in md
     assert "Kran-Kopplung" in md and "Satz von König" in md
-    assert "](" not in md.replace("https://sebastianhanisch.net", "")                 # keine Dateilinks im Markdown der App
+    assert "](" not in re.sub(r"\]\(https://sebastianhanisch\.net/[^)]*\)", "]", md).replace("https://sebastianhanisch.net", "")                 # keine Dateilinks im Markdown der App
     for word in ("Aufträge", "Brücke", "Störung", "überdeckung"):
         assert word in md                                                             # echte Umlaute
     for ascii_form in ("Auftraege", "Bruecke", "Stoerung"):
