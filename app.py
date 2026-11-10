@@ -301,7 +301,7 @@ if have_sample:
         st.plotly_chart(V.gain_figure(dists), width="stretch", key="gain_chart")
     st.caption(
         f"Basis: {sweep_f.n_scenarios(i_f)} Szenarien beim eingestellten Abstand ({eff_delta:+d}) und Rauschen. Gleich heißt: Unterschied höchstens eine halbe Sekunde "
-        "je Szenario. Liegt der Median weit unter dem Mittelwert, tragen wenige Szenarien den Gewinn; Gewinn positiv = weniger Kranwartezeit als Nächstes freies."
+        "je Szenario. Liegt der Median weit unter dem Mittelwert, machen wenige Szenarien den Gewinn aus; Gewinn positiv = weniger Kranwartezeit als Nächstes freies."
     )
 else:
     st.info("ℹ️ Für so kleine Terminals und diesen Abstand gibt es keine Stichprobe: Keine Auftragsfolge verträgt so viele Fahrzeuge weniger. Den Abstand erhöhen.")

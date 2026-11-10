@@ -1,4 +1,4 @@
-"""Abnahmekriterien der Presets (Plan, Abschnitt 7): Welche Geschichte erzählt jedes Beispielszenario, und woran erkennt man, dass sie trägt?
+"""Abnahmekriterien der Presets (Plan, Abschnitt 7): Welche Geschichte erzählt jedes Beispielszenario, und woran erkennt man, dass sie gilt?
 
 Einzige Quelle für `tools/tune_presets.py` (Abstimmung) und `tests/test_preset_stories.py` (Abnahme). Alle Kriterien sind Aussagen über MITTELWERTE (Kranwartezeit je
 Auftrag in Sekunden) und Anteile wartefreier Szenarien; sie werden über ein Messobjekt mit `wait(delta, sigma_pct, key)` und `zero(delta, sigma_pct, key)` abgefragt.
@@ -39,7 +39,7 @@ def criteria(name, m):
                 (w(-1, 0, E_) <= 0.05 * w(-3, 0, E_), f"<= 5 % der Wartezeit bei Minimum-3: {w(-1, 0, E_):.2f} s gegen {w(-3, 0, E_):.1f} s")]
     if name == "Zwei zu wenig":
         # Die Kante bei Minimum-2 ist von Auftragsfolge zu Auftragsfolge sehr verschieden (gemessen: Mittel 7,7 s, Median 2,6 s, 10. bis 90. Perzentil 1,4 bis 32 s).
-        # Die Schwelle liegt deshalb bei 2 s, damit auch eine Folge nahe am Median sie trägt (der Plan hatte 5 s nach dem Mittel).
+        # Die Schwelle liegt deshalb bei 2 s, damit sie auch für eine Folge nahe am Median gilt (der Plan hatte 5 s nach dem Mittel).
         return [(w(-2, 0, E_) >= 2.0, f"Wartezeit bei Minimum-2 >= 2 s je Auftrag: {w(-2, 0, E_):.2f} s"),
                 (w(-2, 0, E_) >= 10 * w(-1, 0, E_), f">= 10-mal die bei Minimum-1: {w(-2, 0, E_):.2f} s gegen {w(-1, 0, E_):.2f} s")]
     if name == "Rauschen 25 %":

@@ -182,7 +182,7 @@ def distribution_figure(dists):
 
 def gain_figure(dists):
     """Median-Gewinn neben Mittel-Gewinn je Verfahren (Summe der Kranwartezeit je Szenario, positiv = besser als Nächstes freies): ein Mittelwert weit vom Median
-    heißt, dass wenige Szenarien das Ergebnis tragen."""
+    heißt, dass wenige Szenarien das Ergebnis ausmachen."""
     import plotly.graph_objects as go
 
     labels = [C.STRATEGY_SHORT[d.key] for d in dists]
