@@ -452,7 +452,7 @@ Das ist eine Kante $j \to k$ eines azyklischen Graphen; jede Fahrzeugkette ist e
 $$
 K_{\min} = n - \nu,
 $$
-mit $\nu$ der Größe eines maximalen Matchings im zweigeteilten Graphen (Vorgänger gegen Nachfolger; Satz von Dilworth/Fulkerson). Eine Knotenüberdeckung derselben Größe
+mit $\nu$ der Größe eines maximalen Matchings im bipartiten Graphen (Vorgänger gegen Nachfolger; Satz von Dilworth/Fulkerson). Eine Knotenüberdeckung derselben Größe
 (Satz von König) belegt, dass kein größeres Matching existiert.
 
 **Kran-Kopplung.** Aufnahmezeit $p_j$ und Kranwartezeit $w_j$ mit dem Mindestabstand $\tau = 40$ s zwischen zwei Aufnahmen derselben Brücke ($\mathrm{pre}(j)$ = Vorgänger derselben Brücke):
